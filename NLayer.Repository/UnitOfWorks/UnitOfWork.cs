@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NLayer.Repository.UnitOfWorks
 {
-    public class UnitOfWork : IUnitOfWorks
+    public class UnitOfWork : IUnitOfWork
     {
         protected readonly AppDbContext _context;
         public void Commit()
