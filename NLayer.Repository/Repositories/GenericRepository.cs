@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLayer.Repository.GenericRepositores
+namespace NLayer.Repository.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
@@ -22,7 +22,7 @@ namespace NLayer.Repository.GenericRepositores
 
         public async Task AddAsync(T entity)
         {
-            await _dbSet.AddAsync(entity);  
+            await _dbSet.AddAsync(entity);
         }
 
         public async Task AddRangeAsync(IEnumerable<T> entities)
@@ -32,7 +32,7 @@ namespace NLayer.Repository.GenericRepositores
 
         public async Task<bool> AnyAsync(Expression<Func<T, bool>> expression)
         {
-           return await _dbSet.AnyAsync(expression);
+            return await _dbSet.AnyAsync(expression);
         }
 
         public IQueryable<T> GetAll()
@@ -57,7 +57,7 @@ namespace NLayer.Repository.GenericRepositores
 
         public void Update(T entity)
         {
-            _dbSet.Update(entity);  
+            _dbSet.Update(entity);
         }
 
         public IQueryable<T> Where(Expression<Func<T, bool>> expression)

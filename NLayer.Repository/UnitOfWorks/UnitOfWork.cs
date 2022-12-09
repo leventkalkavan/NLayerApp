@@ -11,6 +11,12 @@ namespace NLayer.Repository.UnitOfWorks
     public class UnitOfWork : IUnitOfWork
     {
         protected readonly AppDbContext _context;
+
+        public UnitOfWork(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public void Commit()
         {
             _context.SaveChanges();
