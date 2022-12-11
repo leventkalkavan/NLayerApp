@@ -105,7 +105,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreateDate = new DateTime(2022, 12, 9, 11, 39, 4, 685, DateTimeKind.Local).AddTicks(3693),
+                            CreateDate = new DateTime(2022, 12, 11, 14, 44, 28, 972, DateTimeKind.Local).AddTicks(6018),
                             Name = "urun1",
                             Price = 1m,
                             Stock = 1
@@ -114,7 +114,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreateDate = new DateTime(2022, 12, 9, 11, 39, 4, 685, DateTimeKind.Local).AddTicks(3704),
+                            CreateDate = new DateTime(2022, 12, 11, 14, 44, 28, 972, DateTimeKind.Local).AddTicks(6030),
                             Name = "urun2",
                             Price = 2m,
                             Stock = 2
@@ -123,7 +123,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 3,
                             CategoryId = 2,
-                            CreateDate = new DateTime(2022, 12, 9, 11, 39, 4, 685, DateTimeKind.Local).AddTicks(3705),
+                            CreateDate = new DateTime(2022, 12, 11, 14, 44, 28, 972, DateTimeKind.Local).AddTicks(6031),
                             Name = "kitapurun3",
                             Price = 3m,
                             Stock = 3
@@ -132,7 +132,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 4,
                             CategoryId = 2,
-                            CreateDate = new DateTime(2022, 12, 9, 11, 39, 4, 685, DateTimeKind.Local).AddTicks(3706),
+                            CreateDate = new DateTime(2022, 12, 11, 14, 44, 28, 972, DateTimeKind.Local).AddTicks(6032),
                             Name = "kitapurun4",
                             Price = 4m,
                             Stock = 4
