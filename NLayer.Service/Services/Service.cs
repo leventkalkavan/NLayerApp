@@ -1,17 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using NLayer.Core.DTOs;
-using NLayer.Core.Model;
+﻿using Microsoft.EntityFrameworkCore;
 using NLayer.Core.Repositories;
 using NLayer.Core.Services;
 using NLayer.Core.UnitOfWorks;
 using NLayer.Service.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NLayer.Service.Services
 {
@@ -23,19 +15,19 @@ namespace NLayer.Service.Services
         public Service(IGenericRepository<T> repository, IUnitOfWork unitOfWork)
         {
             _repository = repository;
-            _unıtofwork= unitOfWork;    
+            _unıtofwork = unitOfWork;
         }
 
         public async Task<T> AddAsync(T entity)
         {
-            await _repository.AddAsync(entity); 
+            await _repository.AddAsync(entity);
             await _unıtofwork.CommitAsync();
             return entity;
         }
 
         public async Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> entities)
         {
-            await _repository.AddRangeAsync(entities); 
+            await _repository.AddRangeAsync(entities);
             await _unıtofwork.CommitAsync();
             return entities;
         }
@@ -47,7 +39,7 @@ namespace NLayer.Service.Services
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
-            return await _repository.GetAll().ToListAsync(); 
+            return await _repository.GetAll().ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(int id)
@@ -58,7 +50,7 @@ namespace NLayer.Service.Services
             {
                 throw new NotFoundException($"{typeof(T).Name} id=({id}) not found");
             }
-            return hasProduct;                     
+            return hasProduct;
         }
 
         public async Task RemoveAsync(T entity)
@@ -81,7 +73,7 @@ namespace NLayer.Service.Services
 
         public IQueryable<T> Where(Expression<Func<T, bool>> expression)
         {
-            return _repository.Where(expression);   
+            return _repository.Where(expression);
         }
     }
 }

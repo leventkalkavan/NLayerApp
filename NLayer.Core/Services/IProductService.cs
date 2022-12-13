@@ -1,16 +1,10 @@
 ﻿using NLayer.Core.DTOs;
 using NLayer.Core.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NLayer.Core.Services
 {
-    public interface IProductService:IService<Product>
+    public interface IProductService : IService<Product>
     {
-        Task<CustomResponseDto<List<ProductsWithCategoryDto>>> GetProductsWithCategory();
+        Task<List<ProductsWithCategoryDto>> GetProductsWithCategory();
     }
 }

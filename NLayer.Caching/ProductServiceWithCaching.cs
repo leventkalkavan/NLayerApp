@@ -6,12 +6,7 @@ using NLayer.Core.Model;
 using NLayer.Core.Repositories;
 using NLayer.Core.Services;
 using NLayer.Core.UnitOfWorks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NLayer.Caching
 {
@@ -29,7 +24,7 @@ namespace NLayer.Caching
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _memoryCache = memoryCache;
-            if (!_memoryCache.TryGetValue(CacheProductKey,out _))
+            if (!_memoryCache.TryGetValue(CacheProductKey, out _))
             {
                 _memoryCache.Set(CacheProductKey, _repository.GetProductsWithCategory().Result);
             }
@@ -60,31 +55,31 @@ namespace NLayer.Caching
         {
             var products = _memoryCache.Get<IEnumerable<Product>>(CacheProductKey);
             return Task.FromResult(products);
-           //v2 return await Task.FromResult(_memoryCache.Get<List<Product>>(CacheProductKey));
-           // asyncyisilbunudenecalismazsa return Task.FromResult(_memoryCache.Get<IEnumerable<Product>>(CacheProductKey));
+            //v2 return await Task.FromResult(_memoryCache.Get<List<Product>>(CacheProductKey));
+            // asyncyisilbunudenecalismazsa return Task.FromResult(_memoryCache.Get<IEnumerable<Product>>(CacheProductKey));
         }
 
         public Task<Product> GetByIdAsync(int id)
         {
             var product = _memoryCache.Get<List<Product>>(CacheProductKey).FirstOrDefault(x => x.Id == id);
-            if (product==null)
+            if (product == null)
             {
                 throw new NotImplementedException($"{typeof(Product).Name}({id}) not found");
             }
             return Task.FromResult(product);
         }
 
-        public Task<CustomResponseDto<List<ProductsWithCategoryDto>>> GetProductsWithCategory()
+        public Task<List<ProductsWithCategoryDto>> GetProductsWithCategory()
         {
             var products = _memoryCache.Get<List<Product>>(CacheProductKey);
             var productsWithCategoryDto = _mapper.Map<List<ProductsWithCategoryDto>>(products);
-            return Task.FromResult(CustomResponseDto<List<ProductsWithCategoryDto>>.Success(200,productsWithCategoryDto));
+            return Task.FromResult(productsWithCategoryDto);
         }
 
         public async Task RemoveAsync(Product entity)
         {
-             _repository.Remove(entity);
-             await _unitOfWork.CommitAsync();
+            _repository.Remove(entity);
+            await _unitOfWork.CommitAsync();
             await CacheAllProductsAsync();
         }
 

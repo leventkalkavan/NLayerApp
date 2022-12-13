@@ -1,18 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query.Internal;
 using NLayer.Core.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NLayer.Repository
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
         public DbSet<Category> Categories { get; set; }
@@ -25,21 +19,21 @@ namespace NLayer.Repository
             modelBuilder.Entity<ProductFeature>().HasData(new ProductFeature()
             {
                 Id = 1,
-                Color="mavi",
-                ProductId=1,
-                Height=1,
-                Width=1
+                Color = "mavi",
+                ProductId = 1,
+                Height = 1,
+                Width = 1
 
-            },new ProductFeature()
+            }, new ProductFeature()
             {
                 Id = 2,
-                Color="yesil",
-                ProductId=2,
-                Height=2,
-                Width=2
+                Color = "yesil",
+                ProductId = 2,
+                Height = 2,
+                Width = 2
 
             });
-            base.OnModelCreating(modelBuilder); 
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

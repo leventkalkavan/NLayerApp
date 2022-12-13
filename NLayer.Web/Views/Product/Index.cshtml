@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+@model List<ProductsWithCategoryDto>
+
+<table class="table" style="text-align: center;">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Category Id</th>
+            <th>Name</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Category Date</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @{
+            var i = 1; 
+            foreach (var item in Model)
+        
+            {
+           
+                <tr>
+                    <th>@i</th>
+                    <th>@item.CategoryId</th>
+                    <th>@item.Name</th>
+                    <th>@item.Stock</th>
+                    <th>@item.Price</th>
+                    <th>@item.Category.Name</th>
+                    <th>@item.CreateDate</th>
+                    <td>
+                    <a class="btn btn-warning" asp-controller="Product" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                    <td>
+                    <a class="btn btn-danger" asp-controller="Product" asp-action="Remove" asp-route-id="@item.Id">Delete</a></td>
+                </tr>               
+            
+            i++;
+        }   
+        }
+    </tbody>
+</table>
+<a style="text-decoration:none" href="/Product/Save" >Add</a>
