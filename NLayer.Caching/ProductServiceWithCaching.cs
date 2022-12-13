@@ -69,11 +69,11 @@ namespace NLayer.Caching
             return Task.FromResult(product);
         }
 
-        public Task<List<ProductsWithCategoryDto>> GetProductsWithCategory()
+        public Task<CustomResponseDto<List<ProductsWithCategoryDto>>> GetProductsWithCategory()
         {
             var products = _memoryCache.Get<List<Product>>(CacheProductKey);
             var productsWithCategoryDto = _mapper.Map<List<ProductsWithCategoryDto>>(products);
-            return Task.FromResult(productsWithCategoryDto);
+            return Task.FromResult(CustomResponseDto<List<ProductsWithCategoryDto>>.Success(200,productsWithCategoryDto));
         }
 
         public async Task RemoveAsync(Product entity)
