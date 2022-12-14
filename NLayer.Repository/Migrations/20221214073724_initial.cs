@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -89,10 +90,10 @@ namespace NLayer.Repository.Migrations
                 columns: new[] { "Id", "CategoryId", "CreateDate", "Name", "Price", "Stock", "UpdateTime" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2022, 12, 12, 8, 6, 35, 796, DateTimeKind.Local).AddTicks(5867), "urun1", 1m, 1, null },
-                    { 2, 1, new DateTime(2022, 12, 12, 8, 6, 35, 796, DateTimeKind.Local).AddTicks(5876), "urun2", 2m, 2, null },
-                    { 3, 2, new DateTime(2022, 12, 12, 8, 6, 35, 796, DateTimeKind.Local).AddTicks(5877), "kitapurun3", 3m, 3, null },
-                    { 4, 2, new DateTime(2022, 12, 12, 8, 6, 35, 796, DateTimeKind.Local).AddTicks(5878), "kitapurun4", 4m, 4, null }
+                    { 1, 1, new DateTime(2022, 12, 14, 10, 37, 23, 864, DateTimeKind.Local).AddTicks(4824), "urun1", 1m, 1, null },
+                    { 2, 1, new DateTime(2022, 12, 14, 10, 37, 23, 864, DateTimeKind.Local).AddTicks(4833), "urun2", 2m, 2, null },
+                    { 3, 2, new DateTime(2022, 12, 14, 10, 37, 23, 864, DateTimeKind.Local).AddTicks(4834), "kitapurun3", 3m, 3, null },
+                    { 4, 2, new DateTime(2022, 12, 14, 10, 37, 23, 864, DateTimeKind.Local).AddTicks(4835), "kitapurun4", 4m, 4, null }
                 });
 
             migrationBuilder.InsertData(
